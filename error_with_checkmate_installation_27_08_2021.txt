@@ -1,0 +1,47 @@
+There are atleast 3 different installation tutorials on CheckMATE's page scattered here and there. Different tutorials = different installation methods. 
+
+
+Combinations tried:
+
+
+root6 (source compiled) + pythia8306+ MadGraph3.1.1 + hepmc2.06.11 + Delphes3.5.0 + CheckMATE-Current
+
+root6 (precompiled binary) + pythia8306+ MadGraph3.1.1 + hepmc2.06.11 + Delphes3.5.0 + CheckMATE-Current
+
+These don't work as ROOT6 has internally compiled python.
+Hence, root-config --has-python outputs "no". 
+Error encountered: ROOT installed but hasn't been configured with python.
+
+
+
+Installed Virtual Machine (was reluctant to do so) - less freedom/control over the system.
+CheckMATE works, nll works... ROOT not installed (didn't use it anyway). Enabled a shared folder between the local host and Virtual Machine.
+In a nutshell, Virtual Machine works!
+
+
+
+root5 (source compiled) + pythia8306+ MadGraph3.1.1 + hepmc2.06.11 + Delphes3.5.0 + CheckMATE-Current
+
+Personally, this didn't work because there were some errors in  source compilation. 
+I don't know why... first installation worked but CheckMATE couldn't be configured.
+In second installation: neither root nor CheckMATE could be configured.
+
+
+
+
+root5 (precompiled binary) + pythia8219 + MadGraph2.2.3 + hepmc2.06.09 + Delphes3.2.0 + CheckMATE-2.0.24 
+
+Tried to clone the virtualbox's installed versions.
+Seemed to work surpisingly until :
+
+./CheckMATE -n example -mgcommand="import model MSSM_SLHA2; generate p p > go go;" -maxev 500 -slha=example_run_cards/auxiliary/testspectrum.slha -wp8
+
+was executed.
+
+Error encountered: 	ERROR IN FRITZ - MODULE: Unknown
+                	MESSAGE: can't find class 'OldCalorimeter'
+					-----> IMMEDIATE ABORT!
+
+Don't know whether - an error/warning in Delphes' installation or CheckMATE's - since CheckMATE <- Delphes. 
+
+

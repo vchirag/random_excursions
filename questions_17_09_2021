@@ -1,0 +1,150 @@
+Topics Studied:
+
+1.	Monte Carlo Methods (except Markov Chains since we don't need higher dimensional analysis for the time being)
+2.	Distributions: didn't use student-t and chi^2 distributions explicitly. Can be used in hypothesis testing and confidence intervals.
+3.	Hypothesis: Discrete/Continuous, Bayes' Estimator (continuous parameter)
+4.	Likelihood, Likelihood Ratios of 2 overlapping hypotheses, Likelihood Functions, MLE
+	Also a binomial MLE can be estimated by Bernoulli (coupled with Uniform) Distribution 
+6.	Central Limit Theorem: Distributions -> Normalised Gaussian
+5.	Interval Estmation (superset of) Point Estimation: Haven't studied higher moments estimation... but the process is similar to the mean 		estimation.
+6.	Upper Limits and Confidence interval estimation using Normal Gaussian Table.
+
+
+Questions:
+1.	Can we ever produce purely random numbers? 
+	Mersenne Twister is inexhaustible/uniform in 623 dimensions (?) but it is effectively not a purely random generator algorithm.
+
+2.	Given: a dataset from an experiment (.root file).
+	Aim: To generate a MC dataset using the given data points.
+
+	How do I generate such a MC dataset? By first finding a fit for the given data sets, then binning them, and then using selection-rejection method on the obtained fit?
+
+3.	Apart from time complexity and efficiency(pseudo-random/random)... is there any other parameter on which choosing an MC generation 			algorithm depends on?  
+
+4.	Systematic Errors:
+	1.	Due to experimental effects (imprecision/uncertainty/bias)
+	2.	Due to theoretical models
+
+	Do systematic errors from theoretical models arise from rejecting/keeping the leading order/or next leading order terms in some series expansion?
+
+5.	Follow-up (2.):
+	
+	Do systematic errors creep in while generating a MC dataset form an experimentally observed dataset which has a lot of sytematic errors in it?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. Error intervals should contain the wanted true parameter with a fixed probability.
+2. For a given probability, the interval should be as short as possible.
+3. The error interval should represent the mean square spread of measurements
+around the true parameter value. In allusion to the corresponding probability
+term we talk about standard deviation errors.
+4. The definition has to be consistent, i.e. observations containing identical infor-
+mation about the parameters should lead to identical intervals. More precise
+measurements should have shorter intervals than less precise ones. The error
+interval has to contain the point estimate.
+5. Error intervals should be invariant under transformation of the estimated pa-
+rameter.
+6. The computation of the intervals should be free from subjective, e.g. more or less
+arbitrary model depending assumptions.
+7. A consistent method for the combination of measurements and for error propa-
+gation has to exist.
+8. The approach has to be simple and transparent
+
+Confidence intervals are usually
+defined such that they contain a parameter with high probability, e.g. 90% or 95%
+while error intervals comprise one standard deviation or something equivalent.
+
+
+
+
+Frequently, we cannot achieve the precision which is necessary to resolve a small
+physical quantity. If we do not obtain a value which is significantly different from
+zero, we usually present an upper limit. A typical example is the measurement of the
+lifetime of a very short-lived particle which cannot be resolved by the measurement.
+The result of such a measurement is then quoted by a phrase like “The lifetime
+of the particle is smaller than ... with 90 % confidence.” Upper limits are often
+quoted for rates of rare reactions if no reaction has been observed or the observation
+is compatible with background.
+
+To obtain the p.d.f. of the parameter of interest, we just have to normalize the
+likelihood function 7 to the allowed range of the parameter θ. The probability P {θ <
+θ 0 } computed from this density is the confidence level C for the upper limit θ 0 :
+R θ o
+L(θ) dθ
+C(θ 0 ) = R −∞
+.
+(8.10)
+∞
+L(θ) dθ
+−∞
+Lower limits are computed in an analogous way:
+R ∞
+θ o
+C low (θ 0 ) = R ∞
+L(θ) dθ
+−∞
+L(θ) dθ
+.
+(8.11)
+Here the confidence level C is given and the relations (8.10), (8.11) have to be
+solved for θ 0 .
+
+
+PAGE 229
+
+
+The p-value is not the probability that the hypothesis under test is true. It is the
+probability under H 0 to obtain a p-value which is smaller than the one actually
+observed. A p-value between zero and p is expected to occur in the fraction p of
+experiments if H 0 is true.
