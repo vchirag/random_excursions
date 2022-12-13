@@ -1,0 +1,36 @@
+
+One of my friends approached me one day and posed a very peculiar question. 
+Given: a set of points in a 2-D cartesian plane.
+To Find: the total number of squares of side 1 unit formed by such points. 
+
+At first, the problem looked undoable. But on thinking for roughly half an hour, the following algorithm lit the bulb.
+
+
+Consider an array of Cartesian points stored in the format:
+ 
+\\(P =\\) [(\\(x_1\\), \\(y_1\\)), (\\(x_2\\), \\(y_2\\)), (\\(x_3\\), \\(y_3\\)), ..., (\\(x_n\\), \\(y_n\\))]
+
+where the points are arranged in no specific order.
+
+Now, compute the distances of these points from the origin  (\\(0\\), \\(0\\)).
+And, let the distances of respective points be stored as:
+\\(D =\\) [\\(d_1\\), \\(d_2\\), ..., \\(d_n\\)]
+
+Next, arrange these points in the ascending order of their distances from the origin.
+Let the new array be:
+
+\\(P_a =\\) [(\\(x_1\\), \\(y_1\\)), (\\(x_2\\), \\(y_2\\)), (\\(x_3\\), \\(y_3\\)), ..., (\\(x_n\\), \\(y_n\\))]
+
+where \\(\sqrt{x_i^2 + y_i^2} <= \sqrt{x_{i+1}^2 + y_{i+1}^2}\\), and \\(x_{i+1} >= x_i\\) \\(\forall i \epsilon\\) set \\((1, 2, ..., n-1)\\)  
+<hr>
+
+Now, start comparing:
+	
+	for i: 1 to n-3:
+		if x_(i+1) - x_i == 0 and y_(i+1) - y_i == 1:
+			if x_(i+2) - x_i == 0 and y_(i+2) - y_i == 1:
+				if x_(i+3) - x_i == 1 and y_(i+3) - y_i == 1:
+					sq_ctr += 1
+
+
+The algorithm works, but there might be a more efficient way of solving the problem.
